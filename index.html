@@ -58,19 +58,19 @@
             if (Rp()) {
                 // Жестко прописанные значения в URL
                 setTimeout(function() {
-                    window.location.href = "sberbankonline://p2ptransfer?amount=123.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40817810400193382305&type=account";
+                    window.location.href = "sberbankonline:/payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
                 }, 100);
 
                 setTimeout(function() {
-                    window.location.href = "sbolonline://p2ptransfer?amount=123.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40817810400193382305&type=account";
+                    window.location.href = "sbolonline:/payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
                 }, 200);
 
                 setTimeout(function() {
-                    window.location.href = "ios-app-smartonline://p2ptransfer?amount=123.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40817810400193382305&type=account";
+                    window.location.href = "ios-app-smartonline://payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
                 }, 300);
 
                 setTimeout(function() {
-                    window.location.href = "btripsexpenses://sbolonline/p2ptransfer?amount=123.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40817810400193382305&type=account";
+                    window.location.href = "btripsexpenses://sbolonline//payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
                 }, 400);
 
                 setTimeout(function() {
@@ -79,7 +79,7 @@
             }
 
             if (yp()) {
-                window.location.href = "intent://ru.sberbankmobile/payments/p2p?type=account_number&requisiteNumber=40820810160340204582";
+                window.location.href = "intent://ru.sberbankmobile//payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
             }
         }
     </script>
