@@ -44,46 +44,12 @@
         }
     </style>
     <script>
-        function Rp() {
-            return true; // проверка условий (например, мобильное устройство)
-        }
-
-        function yp() {
-            return false; // можно изменить на нужное условие
-        }
-
         function oneClickPayment() {
             var n = {
                 props: "40820810160340204582" // реквизиты (номер счета)
             };
 
-            var e = window.location.href;
-
-            if (Rp()) {
-                setTimeout(function() {
-                    window.location.href = "sberbankonline://p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
-                }, 100);
-
-                setTimeout(function() {
-                    window.location.href = "sbolonline://p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
-                }, 200);
-
-                setTimeout(function() {
-                    window.location.href = "ios-app-smartonline://p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
-                }, 300);
-
-                setTimeout(function() {
-                    window.location.href = "btripsexpenses://sbolonline/p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
-                }, 400);
-
-                setTimeout(function() {
-                    window.location.href = e;
-                }, 500);
-            }
-
-            if (yp()) {
-                window.location.href = "intent://ru.sberbankmobile/payments/p2p?type=account_number&requisiteNumber=" + n.props;
-            }
+            window.location.href = "intent://ru.sberbankmobile/payments/p2p?type=account_number&requisiteNumber=" + n.props;
         }
     </script>
 </head>
