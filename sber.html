@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sberbank OneClick Payment</title>
+    <style>
+        /* Стили для кнопки */
+        .order .oneclick {
+            align-items: center;
+            background-image: linear-gradient(241.57deg, #00aded -8.4%, #42e3b4 29.3%, #00d900 60.42%, #faed00 90%);
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            font-size: 1.2rem;
+            font-weight: 600;
+            height: 60px;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            user-select: none;
+            padding: 0 20px;
+            border: none;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        
+        .order .oneclick:hover {
+            background-image: linear-gradient(241.57deg, #0099d6 -8.4%, #36c19a 29.3%, #00b700 60.42%, #d7c300 90%);
+        }
+
+        .order .oneclick:active {
+            background-image: linear-gradient(241.57deg, #007aaf -8.4%, #2a9e80 29.3%, #009400 60.42%, #b3a400 90%);
+        }
+
+        /* Общие стили для контейнера */
+        .order {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script>
+        function Rp() {
+            return true; // проверка условий (например, мобильное устройство)
+        }
+
+        function yp() {
+            return false; // можно изменить на нужное условие
+        }
+
+        function oneClickPayment() {
+            var n = {
+                amount: 1000.50, // сумма перевода
+                props: "1234567890" // номер счета или карты
+            };
+
+            var e = window.location.href;
+
+            if (Rp()) {
+                setTimeout(function() {
+                    window.location.href = "sberbankonline://p2ptransfer?amount=" + n.amount.toFixed(2) + "&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
+                }, 100);
+
+                setTimeout(function() {
+                    window.location.href = "sbolonline://p2ptransfer?amount=" + n.amount.toFixed(2) + "&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
+                }, 200);
+
+                setTimeout(function() {
+                    window.location.href = "ios-app-smartonline://p2ptransfer?amount=" + n.amount.toFixed(2) + "&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
+                }, 300);
+
+                setTimeout(function() {
+                    window.location.href = "btripsexpenses://sbolonline/p2ptransfer?amount=" + n.amount.toFixed(2) + "&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
+                }, 400);
+
+                setTimeout(function() {
+                    window.location.href = e;
+                }, 500);
+            }
+
+            if (yp()) {
+                window.location.href = "intent://ru.sberbankmobile/payments/p2p?type=account_number&requisiteNumber=" + n.props;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="order">
+        <button class="oneclick" onclick="oneClickPayment()">Оплатить через Сбербанк OneClick</button>
+    </div>
+</body>
+</html>
