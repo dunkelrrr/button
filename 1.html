@@ -21,14 +21,35 @@
             cursor: pointer;
         }
     </style>
+    <script>
+        function redirectToApps() {
+            const amount = 500.00; // Сумма перевода
+            const to = '40820810160340204582'; // Номер счета
+            const urls = [
+                `sberbankonline://p2ptransfer?amount=${amount.toFixed(2)}&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=${to}&type=account`,
+                `sbolonline://p2ptransfer?amount=${amount.toFixed(2)}&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=${to}&type=account`,
+                `ios-app-smartonline://p2ptransfer?amount=${amount.toFixed(2)}&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=${to}&type=account`,
+                `btripsexpenses://p2ptransfer?amount=${amount.toFixed(2)}&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=${to}&type=account`
+            ];
+
+            let index = 0;
+
+            function tryRedirect() {
+                if (index < urls.length) {
+                    window.location.href = urls[index];
+                    index++;
+                    setTimeout(tryRedirect, 100); // Пробуем следующую ссылку через 100 мс
+                }
+            }
+
+            tryRedirect(); // Начинаем пробовать переходы
+        }
+    </script>
 </head>
 <body>
 
-    <h1>диплинк тест</h1>
-    <button onclick="window.location.href='sberbankonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">Sberbank Online</button>
-    <button onclick="window.location.href='sbolonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">SBOL Online</button>
-    <button onclick="window.location.href='ios-app-smartonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">Smart Online</button>
-    <button onclick="window.location.href='btripsexpenses://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">BTrips Expenses</button>
+    <h1>универсальная кнопка</h1>
+    <button onclick="redirectToApps()">1234</button>
 
 </body>
 </html>
