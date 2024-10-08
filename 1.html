@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Links</title>
-    <script type="text/javascript">
-        function redirectTo(url) {
-            window.location.href = url;
+    <title>Кнопки перенаправления</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
         }
-    </script>
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Deep Link Transfers</h1>
-    
-    <button onclick="redirectTo('sberbankonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account')">
-        Sberbank Online
-    </button>
 
-    <button onclick="redirectTo('sbolonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account')">
-        SBOL Online
-    </button>
+    <h1>Выберите приложение для перевода</h1>
+    <button onclick="window.location.href='sberbankonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">Sberbank Online</button>
+    <button onclick="window.location.href='sbolonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">SBOL Online</button>
+    <button onclick="window.location.href='ios-app-smartonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">Smart Online</button>
+    <button onclick="window.location.href='btripsexpenses://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account'">BTrips Expenses</button>
 
-    <button onclick="redirectTo('ios-app-smartonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account')">
-        iOS Smart Online
-    </button>
-
-    <p>If you are not redirected automatically, use one of the buttons above to proceed.</p>
 </body>
 </html>
