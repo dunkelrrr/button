@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect</title>
+    <title>Deep Links</title>
     <script type="text/javascript">
-        window.onload = function() {
-            window.location.href = "sberbankonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account";
+        function redirectTo(url) {
+            window.location.href = url;
         }
     </script>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="sberbankonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account">click here</a>.</p>
+    <h1>Deep Link Transfers</h1>
+    
+    <button onclick="redirectTo('sberbankonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account')">
+        Sberbank Online
+    </button>
+
+    <button onclick="redirectTo('sbolonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account')">
+        SBOL Online
+    </button>
+
+    <button onclick="redirectTo('ios-app-smartonline://p2ptransfer?amount=500.00&isNeedToOpenNextScreen=true&skipContactsScreen=true&to=40820810160340204582&type=account')">
+        iOS Smart Online
+    </button>
+
+    <p>If you are not redirected automatically, use one of the buttons above to proceed.</p>
 </body>
 </html>
